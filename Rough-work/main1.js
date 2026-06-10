@@ -1,7 +1,7 @@
 /* ═══════════════════════════════════════════════
    OLAMZY_GRAPHICS PORTFOLIO — main.js
    Author: Quam Oyekan Alani
-   Version: 1.0
+   Version: 1.1 (Fixed)
 ═══════════════════════════════════════════════ */
 
 /* ─── 1. PAGE LOADER ────────────────────────── */
@@ -15,7 +15,6 @@ window.addEventListener("load", () => {
 const themeToggle = document.getElementById("themeToggle");
 const html = document.documentElement;
 
-// Load saved theme
 const savedTheme = localStorage.getItem("theme") || "dark";
 html.setAttribute("data-theme", savedTheme);
 
@@ -32,7 +31,6 @@ const hamburger = document.getElementById("hamburger");
 const navLinks = document.getElementById("navLinks");
 const navLinkItems = document.querySelectorAll(".nav-link");
 
-// Sticky + scroll effects
 window.addEventListener("scroll", () => {
   if (window.scrollY > 50) {
     navbar.classList.add("scrolled");
@@ -47,13 +45,11 @@ window.addEventListener("scroll", () => {
   animateCounters();
 });
 
-// Hamburger menu
 hamburger.addEventListener("click", () => {
   hamburger.classList.toggle("open");
   navLinks.classList.toggle("open");
 });
 
-// Close nav on link click
 navLinkItems.forEach((link) => {
   link.addEventListener("click", () => {
     hamburger.classList.remove("open");
@@ -61,7 +57,6 @@ navLinkItems.forEach((link) => {
   });
 });
 
-// Active nav highlight
 function updateActiveNav() {
   const sections = document.querySelectorAll("section[id]");
   const scrollPos = window.scrollY + 100;
@@ -115,11 +110,9 @@ function type() {
   const currentRole = roles[roleIndex];
 
   if (!isDeleting) {
-    // Typing forward
     typingEl.textContent = currentRole.slice(0, charIndex + 1);
     charIndex++;
     if (charIndex === currentRole.length) {
-      // Pause before deleting
       setTimeout(() => {
         isDeleting = true;
         type();
@@ -127,7 +120,6 @@ function type() {
       return;
     }
   } else {
-    // Deleting
     typingEl.textContent = currentRole.slice(0, charIndex - 1);
     charIndex--;
     if (charIndex === 0) {
@@ -140,7 +132,6 @@ function type() {
   setTimeout(type, speed);
 }
 
-// Start typing after loader
 setTimeout(type, 2000);
 
 /* ─── 7. PARTICLES CANVAS ───────────────────── */
@@ -189,7 +180,6 @@ class Particle {
   }
 }
 
-// Create particles
 const PARTICLE_COUNT = 80;
 for (let i = 0; i < PARTICLE_COUNT; i++) {
   particles.push(new Particle());
@@ -202,7 +192,6 @@ function animateParticles() {
     p.draw();
   });
 
-  // Draw connecting lines
   particles.forEach((a, i) => {
     particles.slice(i + 1).forEach((b) => {
       const dist = Math.hypot(a.x - b.x, a.y - b.y);
@@ -237,7 +226,6 @@ function triggerAOS() {
   });
 }
 
-// Run on load and scroll
 triggerAOS();
 
 /* ─── 9. SKILL BAR ANIMATIONS ───────────────── */
@@ -345,6 +333,7 @@ if (prevBtn)
     goToSlide(currentSlide - 1);
     startAutoSlide();
   });
+
 if (nextBtn)
   nextBtn.addEventListener("click", () => {
     clearInterval(autoSlide);
@@ -355,12 +344,8 @@ if (nextBtn)
 buildDots();
 startAutoSlide();
 
-/* ─── 13. CONTACT FORM SEND BUTTON ──────────── */
-
-/* ─── CONTACT FORM — EmailJS INTEGRATION ─── */
-// ↓↓ PASTE YOUR IDs HERE ↓↓
-const FORMSPREE_URL = 'https://formspree.io/f/xaqkbzdb';
-// Public Key is already set in the <head> init above
+/* ─── 13. CONTACT FORM — Formspree ──────────── */
+const FORMSPREE_URL = "https://formspree.io/f/xaqkbzdb";
 
 const sendBtn = document.getElementById("sendBtn");
 const formSuccess = document.getElementById("formSuccess");
@@ -379,7 +364,7 @@ if (messageArea) {
   });
 }
 
-// Field validators
+// Validate a single field
 function validateField(inputId, checkFn) {
   const input = document.getElementById(inputId);
   const group = input?.closest(".form-group");
@@ -389,50 +374,36 @@ function validateField(inputId, checkFn) {
   group.classList.toggle("valid", ok);
   return ok;
 }
-// function validateField(inputId, errorId, checkFn) {
-//   const input = document.getElementById(inputId);
-//   const group = input?.closest(".form-group");
-//   if (!input || !group) return true;
-//   const ok = checkFn(input.value.trim());
-//   group.classList.toggle("has-error", !ok);
-//   group.classList.toggle("valid", ok);
-//   return ok;
-// }
 
 function validateAll() {
-  const n = validateField("senderName", "nameError", (v) => v.length >= 2);
-  const e = validateField("senderEmail", "emailError", (v) =>
+  const n = validateField("senderName", (v) => v.length >= 2);
+  const e = validateField("senderEmail", (v) =>
     /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v),
   );
-  const s = validateField("senderSubject", "subjectError", (v) => v !== "");
-  const m = validateField(
-    "senderMessage",
-    "messageError",
-    (v) => v.length >= 20,
-  );
+  const s = validateField("senderSubject", (v) => v !== "");
+  const m = validateField("senderMessage", (v) => v.length >= 20);
   return n && e && s && m;
 }
 
-// Clear error on input
+// Clear error styling as user types
 ["senderName", "senderEmail", "senderSubject", "senderMessage"].forEach(
   (id) => {
     const el = document.getElementById(id);
-    if (el)
+    if (el) {
       el.addEventListener("input", () => {
         el.closest(".form-group")?.classList.remove("has-error");
       });
+    }
   },
 );
 
-// Send
+// Send button
 if (sendBtn) {
   sendBtn.addEventListener("click", async () => {
-    // Hide banners
     formSuccess?.classList.remove("show");
     formError?.classList.remove("show");
 
     if (!validateAll()) {
-      // Scroll to first error
       document
         .querySelector(".form-group.has-error")
         ?.scrollIntoView({ behavior: "smooth", block: "center" });
@@ -443,56 +414,77 @@ if (sendBtn) {
     sendBtn.disabled = true;
     sendBtn.classList.add("loading");
     document.getElementById("sendBtnText").textContent = "Sending…";
-    sendBtn.querySelector(".btn-spinner") ||
+    if (!sendBtn.querySelector(".btn-spinner")) {
       sendBtn.insertAdjacentHTML(
         "afterbegin",
         '<span class="btn-spinner"></span>',
       );
+    }
 
-      sendBtn.insertAdjacentHTML(
-      "afterbegin",
-      '<span class="btn-spinner"></span>',
-    );
+    const data = {
+      name: document.getElementById("senderName").value.trim(),
+      email: document.getElementById("senderEmail").value.trim(),
+      phone:
+        document.getElementById("senderPhone")?.value.trim() || "Not provided",
+      subject: document.getElementById("senderSubject").value,
+      message: document.getElementById("senderMessage").value.trim(),
+    };
 
     try {
-  const res = await fetch(FORMSPREE_URL, {
-    method:  'POST',
-    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-    body:    JSON.stringify(data),
+      const res = await fetch(FORMSPREE_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await res.json();
+
+      if (res.ok) {
+        // ✅ Success
+        formSuccess?.classList.add("show");
+        formSuccess?.scrollIntoView({ behavior: "smooth", block: "center" });
+        [
+          "senderName",
+          "senderEmail",
+          "senderPhone",
+          "senderSubject",
+          "senderMessage",
+        ].forEach((id) => {
+          const el = document.getElementById(id);
+          if (el) {
+            el.value = "";
+            el.closest(".form-group")?.classList.remove("valid");
+          }
+        });
+        if (charCountEl) charCountEl.textContent = "0";
+      } else {
+        // ❌ Formspree error
+        const errMsg =
+          result?.errors?.map((e) => e.message).join(", ") ||
+          "Something went wrong. Please try again.";
+        const msgEl = document.getElementById("formErrorMsg");
+        if (msgEl) msgEl.textContent = errMsg;
+        formError?.classList.add("show");
+        formError?.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+    } catch (err) {
+      // ❌ Network error
+      const msgEl = document.getElementById("formErrorMsg");
+      if (msgEl)
+        msgEl.textContent =
+          "Network error — check your connection and try again.";
+      formError?.classList.add("show");
+      formError?.scrollIntoView({ behavior: "smooth", block: "center" });
+    } finally {
+      sendBtn.disabled = false;
+      sendBtn.classList.remove("loading");
+      document.getElementById("sendBtnText").textContent = "Send Message";
+    }
   });
-
-  const result = await res.json();
-
-  if (res.ok) {
-    formSuccess?.classList.add('show');
-    formSuccess?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    ['senderName','senderEmail','senderPhone','senderSubject','senderMessage'].forEach(id => {
-      const el = document.getElementById(id);
-      if (el) { el.value = ''; el.closest('.form-group')?.classList.remove('valid'); }
-    });
-    if (charCountEl) charCountEl.textContent = '0';
-
-  } else {
-    const errMsg = result?.errors?.map(e => e.message).join(', ') || 'Something went wrong.';
-    const msgEl = document.getElementById('formErrorMsg');
-    if (msgEl) msgEl.textContent = errMsg;
-    formError?.classList.add('show');
-    formError?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  }
-
-} catch (err) {
-  const msgEl = document.getElementById('formErrorMsg');
-  if (msgEl) msgEl.textContent = 'Network error — check your connection and try again.';
-  formError?.classList.add('show');
-  formError?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
-} finally {
-  sendBtn.disabled = false;
-  sendBtn.classList.remove('loading');
-  document.getElementById('sendBtnText').textContent = 'Send Message';
 }
-
-
 
 /* ─── 14. GALLERY IMAGE UPLOAD ───────────────── */
 function loadGalleryImage(event, input) {
@@ -510,7 +502,6 @@ function loadGalleryImage(event, input) {
   reader.readAsDataURL(file);
 }
 
-// Make function globally accessible
 window.loadGalleryImage = loadGalleryImage;
 
 /* ─── 15. SCROLL TO TOP ─────────────────────── */
@@ -542,7 +533,6 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
 });
 
 /* ─── 17. INITIAL TRIGGER ───────────────────── */
-// Run on page ready
 setTimeout(() => {
   triggerAOS();
   animateSkillBars();
