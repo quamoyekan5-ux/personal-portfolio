@@ -10,7 +10,6 @@
       content="Portfolio of Quam Oyekan Alani – Graphic Designer, Frontend Developer & Web Developer."
     />
 
-    <!-- Google Fonts: Clash Display + DM Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -18,19 +17,14 @@
       rel="stylesheet"
     />
 
-    <!-- Remix Icons -->
     <link
       href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
       rel="stylesheet"
     />
 
-    <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <!-- ═══════════════════════════════════════
-       PAGE LOADER
-  ═══════════════════════════════════════ -->
     <div id="loader" class="loader">
       <div class="loader-inner">
         <div class="loader-logo">OG</div>
@@ -39,19 +33,9 @@
       </div>
     </div>
 
-    <!-- ═══════════════════════════════════════
-       CURSOR GLOW
-  ═══════════════════════════════════════ -->
     <div class="cursor-glow" id="cursorGlow"></div>
-
-    <!-- ═══════════════════════════════════════
-       SCROLL PROGRESS
-  ═══════════════════════════════════════ -->
     <div class="scroll-progress" id="scrollProgress"></div>
 
-    <!-- ═══════════════════════════════════════
-       NAVBAR
-  ═══════════════════════════════════════ -->
     <nav class="navbar" id="navbar">
       <div class="nav-container">
         <a href="#home" class="nav-logo">
@@ -72,7 +56,6 @@
         </ul>
 
         <div class="nav-actions">
-          <!-- Theme Toggle -->
           <button
             class="theme-toggle"
             id="themeToggle"
@@ -85,7 +68,6 @@
               </span>
             </span>
           </button>
-          <!-- Hamburger -->
           <button class="hamburger" id="hamburger" aria-label="Menu">
             <span></span><span></span><span></span>
           </button>
@@ -93,20 +75,14 @@
       </div>
     </nav>
 
-    <!-- ═══════════════════════════════════════
-       SECTION 1: HERO
-  ═══════════════════════════════════════ -->
     <section class="hero" id="home">
-      <!-- Particles canvas -->
       <canvas id="particlesCanvas"></canvas>
 
-      <!-- Decorative blobs -->
       <div class="hero-blob blob-1"></div>
       <div class="hero-blob blob-2"></div>
       <div class="hero-blob blob-3"></div>
 
       <div class="hero-container">
-        <!-- LEFT: Text -->
         <div class="hero-text" data-aos="fade-right">
           <div class="hero-badge">
             <span class="badge-dot"></span> Available for freelance
@@ -117,7 +93,6 @@
           </h1>
           <div class="hero-brand">aka <strong>Olamzy_Graphics</strong></div>
 
-          <!-- Typing animation wrapper -->
           <div class="hero-roles">
             <span class="role-prefix">I am a </span>
             <span class="typing-text" id="typingText"></span>
@@ -175,22 +150,18 @@
           </div>
         </div>
 
-        <!-- RIGHT: Profile image -->
         <div class="hero-image" data-aos="fade-left">
           <div class="profile-frame">
             <div class="profile-ring ring-1"></div>
             <div class="profile-ring ring-2"></div>
             <div class="profile-placeholder">
-              <!-- <div class="profile-initials">QA</div> -->
               <p class="profile-hint">
                 <img
                   src="Assets/02ffddc10a4d4a1bb51474264fbf6e9c.jpg"
                   alt="image"
                 />
               </p>
-              <!-- <p class="profile-hint">Add your photo here</p> -->
             </div>
-            <!-- Floating badges -->
             <div class="float-badge badge-design">
               <i class="ri-palette-fill"></i> Designer
             </div>
@@ -201,16 +172,12 @@
         </div>
       </div>
 
-      <!-- Scroll indicator -->
       <a href="#about" class="scroll-indicator">
         <span>Scroll</span>
         <i class="ri-arrow-down-line"></i>
       </a>
     </section>
 
-    <!-- ═══════════════════════════════════════
-       SECTION 2: ABOUT
-  ═══════════════════════════════════════ -->
     <section class="about section" id="about">
       <div class="container">
         <div class="section-header" data-aos="fade-up">
@@ -219,26 +186,33 @@
         </div>
 
         <div class="about-grid">
-          <!-- Image side -->
           <div class="about-image" data-aos="fade-right">
             <div class="about-img-frame">
               <div>
                 <img
                   class="about-img-placeholder"
-                  src="Assets/Quam.jpg.jpeg"
+                  src="Assets/Quam.jpg.png"
                   alt=""
                 />
-                <!-- <i class="ri-user-smile-line"></i> -->
                 <span><img src="" alt="" /></span>
               </div>
               <div class="about-img-decoration"></div>
             </div>
-            <a href="#" class="btn btn-primary download-cv" download>
+            <!--
+              CV DOWNLOAD LINK — replace "Quam-Oyekan-Alani-CV.pdf" with
+              the exact filename of your CV once you add it to the project
+              folder (same level as index.html), e.g.
+              href="Assets/Quam-Oyekan-Alani-CV.pdf" if you place it in Assets/
+            -->
+            <a
+              href="Assets/Oyekan Quam Alani - CV.pdf"
+              class="btn btn-primary download-cv"
+              download
+            >
               <i class="ri-download-cloud-2-line"></i> Download CV
             </a>
           </div>
 
-          <!-- Text side -->
           <div class="about-content" data-aos="fade-left">
             <h3 class="about-heading">A Creative Who Codes &amp; Designs</h3>
             <p>
@@ -263,7 +237,6 @@
               idea from concept to pixel-perfect, fully functioning reality.
             </p>
 
-            <!-- Stats grid -->
             <div class="stats-grid">
               <div class="stat-card" data-aos="zoom-in" data-aos-delay="100">
                 <span class="stat-number" data-count="2">0</span
@@ -291,9 +264,6 @@
       </div>
     </section>
 
-    <!-- ═══════════════════════════════════════
-       SECTION 3: SKILLS
-  ═══════════════════════════════════════ -->
     <section class="skills section" id="skills">
       <div class="container">
         <div class="section-header" data-aos="fade-up">
@@ -304,7 +274,6 @@
         </div>
 
         <div class="skills-categories">
-          <!-- Dev Skills -->
           <div class="skills-group" data-aos="fade-up" data-aos-delay="100">
             <h3 class="skills-group-title">
               <i class="ri-code-box-line"></i> Development
@@ -394,40 +363,33 @@
             </div>
           </div>
 
-          <!-- Design Skills -->
           <div class="skills-group" data-aos="fade-up" data-aos-delay="200">
             <h3 class="skills-group-title">
               <i class="ri-magic-fill"></i> Design
             </h3>
             <div class="skill-cards">
               <div class="skill-card" data-aos="flip-left" data-aos-delay="100">
-                <i class="ri-palette-2-fill"></i>
-                <span>Graphic Design</span>
+                <i class="ri-palette-2-fill"></i><span>Graphic Design</span>
                 <div class="skill-level">Advanced</div>
               </div>
               <div class="skill-card" data-aos="flip-left" data-aos-delay="150">
-                <i class="ri-pen-nib-fill"></i>
-                <span>UI/UX Design</span>
+                <i class="ri-pen-nib-fill"></i><span>UI/UX Design</span>
                 <div class="skill-level">Intermediate</div>
               </div>
               <div class="skill-card" data-aos="flip-left" data-aos-delay="200">
-                <i class="ri-mark-pen-fill"></i>
-                <span>Branding</span>
+                <i class="ri-mark-pen-fill"></i><span>Branding</span>
                 <div class="skill-level">Advanced</div>
               </div>
               <div class="skill-card" data-aos="flip-left" data-aos-delay="250">
-                <i class="ri-image-2-fill"></i>
-                <span>Logo Design</span>
+                <i class="ri-image-2-fill"></i><span>Logo Design</span>
                 <div class="skill-level">Advanced</div>
               </div>
               <div class="skill-card" data-aos="flip-left" data-aos-delay="300">
-                <i class="ri-layout-fill"></i>
-                <span>Flyer Design</span>
+                <i class="ri-layout-fill"></i><span>Flyer Design</span>
                 <div class="skill-level">Advanced</div>
               </div>
               <div class="skill-card" data-aos="flip-left" data-aos-delay="350">
-                <i class="ri-smartphone-fill"></i>
-                <span>Social Media</span>
+                <i class="ri-smartphone-fill"></i><span>Social Media</span>
                 <div class="skill-level">Advanced</div>
               </div>
             </div>
@@ -436,9 +398,6 @@
       </div>
     </section>
 
-    <!-- ═══════════════════════════════════════
-       SECTION 4: SERVICES
-  ═══════════════════════════════════════ -->
     <section class="services section" id="services">
       <div class="container">
         <div class="section-header" data-aos="fade-up">
@@ -507,122 +466,10 @@
             </p>
           </div>
         </div>
-
-        <!-- Design Gallery Placeholders -->
-        <div class="gallery-section" data-aos="fade-up">
-          <h3 class="gallery-title">
-            Design <span class="gold-text">Gallery</span>
-          </h3>
-          <p class="gallery-subtitle">
-            Insert your designs below — click any card to upload.
-          </p>
-          <div class="gallery-grid">
-            <!-- 6 upload placeholders -->
-            <div
-              class="gallery-card"
-              onclick="this.querySelector('input').click()"
-            >
-              <input
-                type="file"
-                accept="image/*"
-                class="gallery-input"
-                onchange="loadGalleryImage(event, this)"
-              />
-              <div class="gallery-placeholder">
-                <i class="ri-add-circle-line"></i>
-                <span>Upload Design Here</span>
-                <small>PNG / JPG / SVG</small>
-              </div>
-              <img class="gallery-img" src="" alt="Design preview" />
-            </div>
-            <div
-              class="gallery-card"
-              onclick="this.querySelector('input').click()"
-            >
-              <input
-                type="file"
-                accept="image/*"
-                class="gallery-input"
-                onchange="loadGalleryImage(event, this)"
-              />
-              <div class="gallery-placeholder">
-                <i class="ri-add-circle-line"></i><span>Upload Design Here</span
-                ><small>PNG / JPG / SVG</small>
-              </div>
-              <img class="gallery-img" src="" alt="" />
-            </div>
-            <div
-              class="gallery-card"
-              onclick="this.querySelector('input').click()"
-            >
-              <input
-                type="file"
-                accept="image/*"
-                class="gallery-input"
-                onchange="loadGalleryImage(event, this)"
-              />
-              <div class="gallery-placeholder">
-                <i class="ri-add-circle-line"></i><span>Upload Design Here</span
-                ><small>PNG / JPG / SVG</small>
-              </div>
-              <img class="gallery-img" src="" alt="" />
-            </div>
-            <div
-              class="gallery-card"
-              onclick="this.querySelector('input').click()"
-            >
-              <input
-                type="file"
-                accept="image/*"
-                class="gallery-input"
-                onchange="loadGalleryImage(event, this)"
-              />
-              <div class="gallery-placeholder">
-                <i class="ri-add-circle-line"></i><span>Upload Design Here</span
-                ><small>PNG / JPG / SVG</small>
-              </div>
-              <img class="gallery-img" src="" alt="" />
-            </div>
-            <div
-              class="gallery-card"
-              onclick="this.querySelector('input').click()"
-            >
-              <input
-                type="file"
-                accept="image/*"
-                class="gallery-input"
-                onchange="loadGalleryImage(event, this)"
-              />
-              <div class="gallery-placeholder">
-                <i class="ri-add-circle-line"></i><span>Upload Design Here</span
-                ><small>PNG / JPG / SVG</small>
-              </div>
-              <img class="gallery-img" src="" alt="" />
-            </div>
-            <div
-              class="gallery-card"
-              onclick="this.querySelector('input').click()"
-            >
-              <input
-                type="file"
-                accept="image/*"
-                class="gallery-input"
-                onchange="loadGalleryImage(event, this)"
-              />
-              <div class="gallery-placeholder">
-                <i class="ri-add-circle-line"></i><span>Upload Design Here</span
-                ><small>PNG / JPG / SVG</small>
-              </div>
-              <img class="gallery-img" src="" alt="" />
-            </div>
-          </div>
-        </div>
+        <!-- Design Gallery section removed as requested -->
       </div>
     </section>
 
-    <!-- ═══════════════════════════════════════
-       SECTION 5: PROJECTS
-  ═══════════════════════════════════════ -->
     <section class="projects section" id="projects">
       <div class="container">
         <div class="section-header" data-aos="fade-up">
@@ -632,7 +479,6 @@
           </h2>
         </div>
 
-        <!-- Filter tabs -->
         <div class="filter-tabs" data-aos="fade-up">
           <button class="filter-btn active" data-filter="all">
             All <span class="filter-count" id="count-all"></span>
@@ -648,13 +494,9 @@
           </button>
         </div>
 
-        <!-- ── PROJECTS GRID ── -->
         <div class="projects-grid" id="projectsGrid">
-          <!-- ══════════════════════════════
-             WEB DEVELOPMENT CARDS
-        ══════════════════════════════ -->
+          <!-- ══════════════════ CATEGORY A — WEB DEVELOPMENT (3 templates) ══════════════════ -->
 
-          <!-- Web Card 1 — EDITABLE -->
           <div
             class="project-card"
             data-category="web"
@@ -662,16 +504,9 @@
             data-aos-delay="100"
           >
             <div class="project-img-wrap">
-              <!--
-              ─────────────────────────────────────────
-              HOW TO ADD YOUR WEBSITE SCREENSHOT:
-              Replace  src=""  with your image path.
-              Example: src="images/website1.png"
-              Or paste a full URL: src="https://..."
-              ─────────────────────────────────────────
-            -->
+              <!-- Replace src="" e.g. src="Assets/portfolio-website.png" -->
               <img
-                src=""
+                src="Assets/projects/Screenshot 2026-09-07 150129.png"
                 alt="Portfolio Website Screenshot"
                 class="project-real-img"
                 onerror="
@@ -682,12 +517,17 @@
               <div class="project-img-placeholder" style="display: none">
                 <i class="ri-window-fill"></i>
               </div>
-              <!-- Overlay shown on hover -->
               <div class="project-overlay">
-                <a href="#" class="btn btn-sm btn-primary" target="_blank"
+                <a
+                  href="https://adorable-salamander-127ba3.netlify.app/"
+                  class="btn btn-sm btn-primary"
+                  target="_blank"
                   ><i class="ri-external-link-line"></i> Live Demo</a
                 >
-                <a href="#" class="btn btn-sm btn-ghost" target="_blank"
+                <a
+                  href="https://github.com/quamoyekan5-ux/personal-portfolio"
+                  class="btn btn-sm btn-ghost"
+                  target="_blank"
                   ><i class="ri-github-fill"></i> GitHub</a
                 >
                 <button
@@ -696,7 +536,10 @@
                   data-title="Portfolio Website"
                   data-desc="A responsive personal portfolio built with HTML, CSS and JavaScript."
                   data-tags="HTML,CSS,JavaScript"
-                  data-img=""
+                  data-imgs="Assets/projects/Screenshot 2026-09-07 150129.png, 
+                  Assets/projects/Screenshot 2026-09-07 155140.png, Assets/projects/Screenshot 2026-09-07 155200.png, 
+                  Assets/projects/Screenshot 2026-09-07 155223.png, Assets/projects/Screenshot 2026-09-07 155239.png, 
+                  Assets/projects/Screenshot 2026-09-07 155302.png, Assets/projects/Screenshot 2026-09-07 155330.png"
                 >
                   <i class="ri-fullscreen-line"></i> Preview
                 </button>
@@ -717,7 +560,6 @@
             </div>
           </div>
 
-          <!-- Web Card 2 — EDITABLE -->
           <div
             class="project-card"
             data-category="web"
@@ -725,9 +567,7 @@
             data-aos-delay="150"
           >
             <div class="project-img-wrap">
-              <!--
-              Replace src="" with your website screenshot path
-            -->
+              <!-- Replace src="" e.g. src="Assets/ecommerce-ui.png" -->
               <img
                 src=""
                 alt="E-Commerce UI Screenshot"
@@ -753,7 +593,7 @@
                   data-title="E-Commerce UI"
                   data-desc="Clean, modern e-commerce frontend with product listings and cart."
                   data-tags="HTML,CSS,JS"
-                  data-img=""
+                  data-imgs="Assets/ecommerce-ui.png"
                 >
                   <i class="ri-fullscreen-line"></i> Preview
                 </button>
@@ -774,28 +614,72 @@
             </div>
           </div>
 
-          <!-- ══════════════════════════════
-             GRAPHIC DESIGN CARDS
-        ══════════════════════════════ -->
-
-          <!-- Design Card 1 — EDITABLE -->
           <div
             class="project-card"
-            data-category="design"
+            data-category="web"
             data-aos="fade-up"
             data-aos-delay="200"
           >
             <div class="project-img-wrap">
-              <!--
-              ─────────────────────────────────────────
-              HOW TO ADD YOUR GRAPHIC DESIGN:
-              Replace  src=""  with your image path.
-              Example: src="images/logo-design.png"
-              ─────────────────────────────────────────
-            -->
+              <!-- Replace src="" e.g. src="Assets/web-project-3.png" -->
               <img
-                src=""
-                alt="Brand Identity Kit"
+                src="Assets/projects/Screenshot 2026-09-07 160228.png"
+                alt="Web Project 3 Screenshot"
+                class="project-real-img"
+                onerror="
+                  this.style.display = 'none';
+                  this.nextElementSibling.style.display = 'flex';
+                "
+              />
+              <div class="project-img-placeholder" style="display: none">
+                <i class="ri-layout-4-fill"></i>
+              </div>
+              <div class="project-overlay">
+                <a href="#" class="btn btn-sm btn-primary" target="_blank"
+                  ><i class="ri-external-link-line"></i> Live Demo</a
+                >
+                <a
+                  href="https://github.com/quamoyekan5-ux/Hostel-Maintenance-System"
+                  class="btn btn-sm btn-ghost"
+                  target="_blank"
+                  ><i class="ri-github-fill"></i> GitHub</a
+                >
+                <button
+                  class="btn btn-sm btn-preview-img"
+                  onclick="openProjectModal(this)"
+                  data-title="Hostel Maintenance System"
+                  data-desc="A responsive web application for managing hostel maintenance requests and issues."
+                  data-tags="HTML,CSS,JS"
+                  data-imgs="Assets/projects/Screenshot 2026-09-07 160228.png"
+                >
+                  <i class="ri-fullscreen-line"></i> Preview
+                </button>
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-category-badge web-badge">
+                <i class="ri-code-s-slash-fill"></i> Web Dev
+              </div>
+              <h3>Hostel Maintenance System</h3>
+              <p>A responsive web application for managing hostel maintenance requests and issues.</p>
+              <div class="project-tags">
+                <span>HTML</span><span>CSS</span><span>JS</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ══════════════════ CATEGORY B — GRAPHIC DESIGN (8 projects, real assets) ══════════════════ -->
+
+          <div
+            class="project-card"
+            data-category="design"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="project-img-wrap">
+              <img
+                src="Assets/projects/MoodBoard Design.jpg"
+                alt="Olamzy Graphics Brand Identity"
                 class="project-real-img"
                 onerror="
                   this.style.display = 'none';
@@ -806,68 +690,23 @@
                 <i class="ri-brush-fill"></i>
               </div>
               <div class="project-overlay">
-                <a href="#" class="btn btn-sm btn-primary" target="_blank"
+                <a
+                  href="https://drive.google.com/drive/folders/1IZemJNkuohPK7Kf9rKtPFUT6h0EjRtJp?usp=drive_link"
+                  class="btn btn-sm btn-primary"
+                  target="_blank"
                   ><i class="ri-eye-line"></i> View Full</a
                 >
                 <button
                   class="btn btn-sm btn-preview-img"
                   onclick="openProjectModal(this)"
-                  data-title="Brand Identity Kit"
-                  data-desc="Full brand identity including logo, colour palette, and brand guidelines."
-                  data-tags="Branding,Logo,Print"
-                  data-img=""
-                ></button>
-              </div>
-            </div>
-            <div class="project-info">
-              <div class="project-category-badge design-badge">
-                <i class="ri-palette-fill"></i> Graphic Design
-              </div>
-              <h3>Brand Identity Kit</h3>
-              <p>
-                Full brand identity including logo, colour palette, and brand
-                guidelines.
-              </p>
-              <div class="project-tags">
-                <span>Branding</span><span>Logo</span><span>Print</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Design Card 2 — EDITABLE -->
-          <div
-            class="project-card"
-            data-category="design"
-            data-aos="fade-up"
-            data-aos-delay="250"
-          >
-            <div class="project-img-wrap">
-              <!--
-              Replace src="" with your flyer/poster design path
-            -->
-              <img
-                src=""
-                alt="Event Flyer Series"
-                class="project-real-img"
-                onerror="
-                  this.style.display = 'none';
-                  this.nextElementSibling.style.display = 'flex';
-                "
-              />
-              <div class="project-img-placeholder" style="display: none">
-                <i class="ri-coupon-fill"></i>
-              </div>
-              <div class="project-overlay">
-                <a href="#" class="btn btn-sm btn-primary" target="_blank"
-                  ><i class="ri-eye-line"></i> View Full</a
-                >
-                <button
-                  class="btn btn-sm btn-preview-img"
-                  onclick="openProjectModal(this)"
-                  data-title="Event Flyer Series"
-                  data-desc="Series of bold, vibrant event flyers for music and lifestyle events."
-                  data-tags="Print,Photoshop,Illustrator"
-                  data-img=""
+                  data-title="Olamzy_Graphics Brand Identity"
+                  data-desc="Personal brand identity for Olamzy_Graphics — business card and letterhead system in a 
+                  clean teal and dark palette."
+                  data-tags="Branding,Print,Business Card"
+                  data-imgs="Assets/projects/Portfolio Design.jpg, Assets/projects/About Me.jpg, 
+                  Assets/projects/Flyer Design.jpg, Assets/projects/Social Media Design.jpg, 
+                  Assets/projects/Unclassified Design.jpg, Assets/projects/Connect Design.jpg, 
+                  Assets/projects/Thanks Design.jpg"
                 >
                   <i class="ri-fullscreen-line"></i> Preview
                 </button>
@@ -877,36 +716,398 @@
               <div class="project-category-badge design-badge">
                 <i class="ri-palette-fill"></i> Graphic Design
               </div>
-              <h3>Event Flyer Series</h3>
+              <h3>Olamzy_Graphics Brand Identity</h3>
               <p>
-                Series of bold, vibrant event flyers for music and lifestyle
-                events.
+                Business card and letterhead system for my own personal brand.
               </p>
               <div class="project-tags">
-                <span>Print</span><span>Photoshop</span><span>Illustrator</span>
+                <span>Branding</span><span>Print</span>
               </div>
             </div>
           </div>
 
-          <!-- ══════════════════════════════
-             UI/UX CARDS
-        ══════════════════════════════ -->
-
-          <!-- UI/UX Card 1 — EDITABLE -->
           <div
             class="project-card"
-            data-category="uiux"
+            data-category="design"
+            data-aos="fade-up"
+            data-aos-delay="150"
+          >
+            <div class="project-img-wrap">
+              <img
+                src="Assets/projects/Murty Business Back card.jpg"
+                alt="Murty Building Contractor Brand Identity"
+                class="project-real-img"
+                onerror="
+                  this.style.display = 'none';
+                  this.nextElementSibling.style.display = 'flex';
+                "
+              />
+              <div class="project-img-placeholder" style="display: none">
+                <i class="ri-building-fill"></i>
+              </div>
+              <div class="project-overlay">
+                <a
+                  href="Assets/projects/Murty Business Back card.jpg"
+                  class="btn btn-sm btn-primary"
+                  target="_blank"
+                  ><i class="ri-eye-line"></i> View Full</a
+                >
+                <button
+                  class="btn btn-sm btn-preview-img"
+                  onclick="openProjectModal(this)"
+                  data-title="Murty Building Contractor"
+                  data-desc="Confident brand identity for a construction & building consultation company — 
+                  logo mark, business card system and service flyer."
+                  data-tags="Branding,Logo,Print"
+                  data-imgs="Assets/projects/Murty Business Back card.jpg, Assets/projects/Murty Business Front card.jpg"
+                >
+                  <i class="ri-fullscreen-line"></i> Preview
+                </button>
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-category-badge design-badge">
+                <i class="ri-palette-fill"></i> Graphic Design
+              </div>
+              <h3>Murty Building Contractor</h3>
+              <p>
+                Brand identity for a construction company — logo, business card
+                system and flyer.
+              </p>
+              <div class="project-tags">
+                <span>Branding</span><span>Logo</span><span>Print</span>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="project-card"
+            data-category="design"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div class="project-img-wrap">
+              <img
+                src="Assets/projects/Boi Adufe Design.jpg"
+                alt="Boi Adufe Frame Concept Logo"
+                class="project-real-img"
+                onerror="
+                  this.style.display = 'none';
+                  this.nextElementSibling.style.display = 'flex';
+                "
+              />
+              <div class="project-img-placeholder" style="display: none">
+                <i class="ri-image-2-fill"></i>
+              </div>
+              <div class="project-overlay">
+                <a
+                  href="Assets/projects/Boi Adufe Design.jpg"
+                  class="btn btn-sm btn-primary"
+                  target="_blank"
+                  ><i class="ri-eye-line"></i> View Full</a
+                >
+                <button
+                  class="btn btn-sm btn-preview-img"
+                  onclick="openProjectModal(this)"
+                  data-title="Boi Adufe — Frame Concept"
+                  data-desc="Bold event-photography logo built around a striking monogram with warm gold ornamentation — 
+                  designed to feel celebratory and premium."
+                  data-tags="Logo,Branding"
+                  data-imgs="Assets/projects/Boi Adufe Design.jpg"
+                >
+                  <i class="ri-fullscreen-line"></i> Preview
+                </button>
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-category-badge design-badge">
+                <i class="ri-palette-fill"></i> Graphic Design
+              </div>
+              <h3>Boi Adufe — Frame Concept</h3>
+              <p>
+                Bold event-photography logo mark with warm gold ornamentation.
+              </p>
+              <div class="project-tags">
+                <span>Logo</span><span>Branding</span>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="project-card"
+            data-category="design"
+            data-aos="fade-up"
+            data-aos-delay="250"
+          >
+            <div class="project-img-wrap">
+              <img
+                src="Assets/projects/Amoke Collection Design.jpg"
+                alt="Amoke and Co Collection Flyer"
+                class="project-real-img"
+                onerror="
+                  this.style.display = 'none';
+                  this.nextElementSibling.style.display = 'flex';
+                "
+              />
+              <div class="project-img-placeholder" style="display: none">
+                <i class="ri-shopping-bag-fill"></i>
+              </div>
+              <div class="project-overlay">
+                <a
+                  href="Assets/projects/Amoke Collection Design.jpg"
+                  class="btn btn-sm btn-primary"
+                  target="_blank"
+                  ><i class="ri-eye-line"></i> View Full</a
+                >
+                <button
+                  class="btn btn-sm btn-preview-img"
+                  onclick="openProjectModal(this)"
+                  data-title="Amoke & Co Collection"
+                  data-desc="Product promotion campaign for a fragrance and lifestyle collection — 
+                  layered product photography with a soft floral backdrop."
+                  data-tags="Print,Product Promotion"
+                  data-imgs="Assets/projects/Amoke Collection Design.jpg"
+                >
+                  <i class="ri-fullscreen-line"></i> Preview
+                </button>
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-category-badge design-badge">
+                <i class="ri-palette-fill"></i> Graphic Design
+              </div>
+              <h3>Amoke &amp; Co Collection</h3>
+              <p>
+                Product promotion campaign for a fragrance and lifestyle
+                collection.
+              </p>
+              <div class="project-tags">
+                <span>Print</span><span>Product Promotion</span>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="project-card"
+            data-category="design"
             data-aos="fade-up"
             data-aos-delay="300"
           >
             <div class="project-img-wrap">
-              <!--
-              ─────────────────────────────────────────
-              HOW TO ADD YOUR UI/UX DESIGN:
-              Replace  src=""  with your mockup image.
-              Example: src="images/app-ui.png"
-              ─────────────────────────────────────────
-            -->
+              <img
+                src="Assets/projects/Fisiglobal Laundry servive.jpg"
+                alt="FisiGlobal Laundry Service Flyer"
+                class="project-real-img"
+                onerror="
+                  this.style.display = 'none';
+                  this.nextElementSibling.style.display = 'flex';
+                "
+              />
+              <div class="project-img-placeholder" style="display: none">
+                <i class="ri-t-shirt-fill"></i>
+              </div>
+              <div class="project-overlay">
+                <a
+                  href="Assets/projects/Fisiglobal Laundry servive.jpg"
+                  class="btn btn-sm btn-primary"
+                  target="_blank"
+                  ><i class="ri-eye-line"></i> View Full</a
+                >
+                <button
+                  class="btn btn-sm btn-preview-img"
+                  onclick="openProjectModal(this)"
+                  data-title="FisiGlobal Laundry Service"
+                  data-desc="Service promotion flyer for a laundry business — washing, 
+                  ironing and stain removal, clearly presented with a clean blue palette."
+                  data-tags="Print,Flyer,Service"
+                  data-imgs="Assets/projects/Fisiglobal Laundry servive.jpg"
+                >
+                  <i class="ri-fullscreen-line"></i> Preview
+                </button>
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-category-badge design-badge">
+                <i class="ri-palette-fill"></i> Graphic Design
+              </div>
+              <h3>FisiGlobal Laundry Service</h3>
+              <p>Service promotion flyer for a laundry business.</p>
+              <div class="project-tags">
+                <span>Print</span><span>Flyer</span>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="project-card"
+            data-category="design"
+            data-aos="fade-up"
+            data-aos-delay="350"
+          >
+            <div class="project-img-wrap">
+              <img
+                src="Assets/projects/Coke 1.jpg"
+                alt="Coca-Cola Fan Design Series"
+                class="project-real-img"
+                onerror="
+                  this.style.display = 'none';
+                  this.nextElementSibling.style.display = 'flex';
+                "
+              />
+              <div class="project-img-placeholder" style="display: none">
+                <i class="ri-drop-fill"></i>
+              </div>
+              <div class="project-overlay">
+                <a href="#" class="btn btn-sm btn-primary" target="_blank"
+                  ><i class="ri-eye-line"></i> View Full</a
+                >
+                <button
+                  class="btn btn-sm btn-preview-img"
+                  onclick="openProjectModal(this)"
+                  data-title="Coca-Cola Fan Design Series"
+                  data-desc="A series of bold typographic fan-art concept designs for Coca-Cola, 
+                  exploring product photography and dramatic red compositions."
+                  data-tags="Print,Typography,Concept"
+                  data-imgs="Assets/projects/Coke 1.jpg, Assets/projects/Coca cola 2.jpg, 
+                  Assets/projects/Coca cola 4.jpg, Assets/projects/Coca cola 5.jpg"
+                >
+                  <i class="ri-fullscreen-line"></i> Preview
+                </button>
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-category-badge design-badge">
+                <i class="ri-palette-fill"></i> Graphic Design
+              </div>
+              <h3>Coca-Cola Fan Design Series</h3>
+              <p>
+                Bold typographic concept designs exploring product photography.
+              </p>
+              <div class="project-tags">
+                <span>Print</span><span>Typography</span>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="project-card"
+            data-category="design"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
+            <div class="project-img-wrap">
+              <img
+                src="Assets/projects/Economic Slide 1.jpg"
+                alt="NESA Lagos Economics Myths vs Facts Campaign"
+                class="project-real-img"
+                onerror="
+                  this.style.display = 'none';
+                  this.nextElementSibling.style.display = 'flex';
+                "
+              />
+              <div class="project-img-placeholder" style="display: none">
+                <i class="ri-bar-chart-2-fill"></i>
+              </div>
+              <div class="project-overlay">
+                <a
+                  href="https://drive.google.com/drive/folders/1w3gCMUkT91nZdW4jNCdlj7FLQ8ZGM-4R?usp=drive_link"
+                  class="btn btn-sm btn-primary"
+                  target="_blank"
+                  ><i class="ri-eye-line"></i> View Full</a
+                >
+                <button
+                  class="btn btn-sm btn-preview-img"
+                  onclick="openProjectModal(this)"
+                  data-title="NESA Lagos — Myths vs Facts Campaign"
+                  data-desc="A multi-slide Instagram carousel campaign for the Nigerian Economics Students' 
+                  Association (Lagos Chapter) breaking down economics myths vs facts for students."
+                  data-tags="Social Media,Carousel,Education"
+                  data-imgs="Assets/projects/Economic Slide 1.jpg, Assets/projects/Economic Slide 2.jpg, 
+                  Assets/projects/Economic Slide 3.jpg, Assets/projects/Economic Slide 4.jpg"
+                >
+                  <i class="ri-fullscreen-line"></i> Preview
+                </button>
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-category-badge design-badge">
+                <i class="ri-palette-fill"></i> Graphic Design
+              </div>
+              <h3>NESA Lagos — Myths vs Facts Campaign</h3>
+              <p>
+                Instagram carousel campaign for the Nigerian Economics Students'
+                Association.
+              </p>
+              <div class="project-tags">
+                <span>Social Media</span><span>Carousel</span>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="project-card"
+            data-category="design"
+            data-aos="fade-up"
+            data-aos-delay="450"
+          >
+            <div class="project-img-wrap">
+              <img
+                src="Assets/projects/Eddy's-Logo.jpg"
+                alt="Eddy's Gadget Logo Concepts"
+                class="project-real-img"
+                onerror="
+                  this.style.display = 'none';
+                  this.nextElementSibling.style.display = 'flex';
+                "
+              />
+              <div class="project-img-placeholder" style="display: none">
+                <i class="ri-flashlight-fill"></i>
+              </div>
+              <div class="project-overlay">
+                <a
+                  href="Assets/projects/Eddy's-Logo.jpg"
+                  class="btn btn-sm btn-primary"
+                  target="_blank"
+                  ><i class="ri-eye-line"></i> View Full</a
+                >
+                <button
+                  class="btn btn-sm btn-preview-img"
+                  onclick="openProjectModal(this)"
+                  data-title="Eddy's Gadget — Logo Concepts"
+                  data-desc="Five logo direction explorations for Eddy's Gadget, a tech/gadget retail brand — 
+                  monogram marks, a numeral motif and circuit-inspired iconography."
+                  data-tags="Logo,Branding,Concept"
+                  data-imgs="Assets/projects/Eddy's-Logo-1.png, Assets/projects/Eddy's-Logo-2.png, 
+                  Assets/projects/Eddy's-Logo-3.png, Assets/projects/Eddy's-Logo-5.png"
+                >
+                  <i class="ri-fullscreen-line"></i> Preview
+                </button>
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-category-badge design-badge">
+                <i class="ri-palette-fill"></i> Graphic Design
+              </div>
+              <h3>Eddy's Gadget — Logo Concepts</h3>
+              <p>
+                Four logo direction explorations for a tech/gadget retail brand.
+              </p>
+              <div class="project-tags">
+                <span>Logo</span><span>Branding</span><span>Concept</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ══════════════════ CATEGORY C — UI/UX (3 templates) ══════════════════ -->
+
+          <div
+            class="project-card"
+            data-category="uiux"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="project-img-wrap">
+              <!-- Replace src="" e.g. src="Assets/mobile-app-ui.png" -->
               <img
                 src=""
                 alt="Mobile App UI"
@@ -929,7 +1130,7 @@
                   data-title="Mobile App UI"
                   data-desc="Modern mobile app UI/UX design with intuitive user flows."
                   data-tags="UI/UX,Figma,Mobile"
-                  data-img=""
+                  data-imgs="Assets/mobile-app-ui.png"
                 >
                   <i class="ri-fullscreen-line"></i> Preview
                 </button>
@@ -947,17 +1148,14 @@
             </div>
           </div>
 
-          <!-- UI/UX Card 2 — EDITABLE -->
           <div
             class="project-card"
             data-category="uiux"
             data-aos="fade-up"
-            data-aos-delay="350"
+            data-aos-delay="150"
           >
             <div class="project-img-wrap">
-              <!--
-              Replace src="" with your dashboard/wireframe image
-            -->
+              <!-- Replace src="" e.g. src="Assets/dashboard-design.png" -->
               <img
                 src=""
                 alt="Dashboard Design"
@@ -980,7 +1178,7 @@
                   data-title="Dashboard Design"
                   data-desc="Analytics dashboard with clean data visualisation and modern UI."
                   data-tags="UI/UX,Figma,Dashboard"
-                  data-img=""
+                  data-imgs="Assets/dashboard-design.png"
                 >
                   <i class="ri-fullscreen-line"></i> Preview
                 </button>
@@ -999,10 +1197,57 @@
               </div>
             </div>
           </div>
+
+          <div
+            class="project-card"
+            data-category="uiux"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div class="project-img-wrap">
+              <!-- Replace src="" e.g. src="Assets/uiux-project-3.png" -->
+              <img
+                src=""
+                alt="UI/UX Project 3"
+                class="project-real-img"
+                onerror="
+                  this.style.display = 'none';
+                  this.nextElementSibling.style.display = 'flex';
+                "
+              />
+              <div class="project-img-placeholder" style="display: none">
+                <i class="ri-artboard-2-fill"></i>
+              </div>
+              <div class="project-overlay">
+                <a href="#" class="btn btn-sm btn-primary" target="_blank"
+                  ><i class="ri-eye-line"></i> Prototype</a
+                >
+                <button
+                  class="btn btn-sm btn-preview-img"
+                  onclick="openProjectModal(this)"
+                  data-title="UI/UX Project 3"
+                  data-desc="Add a short description of this UI/UX project here."
+                  data-tags="UI/UX,Figma"
+                  data-imgs="Assets/uiux-project-3.png"
+                >
+                  <i class="ri-fullscreen-line"></i> Preview
+                </button>
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-category-badge uiux-badge">
+                <i class="ri-layout-fill"></i> UI/UX
+              </div>
+              <h3>UI/UX Project 3</h3>
+              <p>Add a short description of this UI/UX project here.</p>
+              <div class="project-tags">
+                <span>UI/UX</span><span>Figma</span>
+              </div>
+            </div>
+          </div>
         </div>
         <!-- end projectsGrid -->
 
-        <!-- Load More Button -->
         <div style="text-align: center; margin-top: 48px" data-aos="fade-up">
           <button
             class="btn btn-ghost load-more-btn"
@@ -1015,9 +1260,6 @@
       </div>
     </section>
 
-    <!-- ═══════════════════════════════════════
-       PROJECT DETAIL MODAL
-  ═══════════════════════════════════════ -->
     <div
       class="project-modal-overlay"
       id="projectModalOverlay"
@@ -1036,6 +1278,23 @@
           <div class="project-modal-img-placeholder" id="modalImgPlaceholder">
             <i class="ri-image-2-line"></i><span>No preview available</span>
           </div>
+          <button
+            class="modal-nav modal-nav-prev"
+            id="modalPrevBtn"
+            onclick="prevModalImg()"
+            aria-label="Previous image"
+          >
+            <i class="ri-arrow-left-s-line"></i>
+          </button>
+          <button
+            class="modal-nav modal-nav-next"
+            id="modalNextBtn"
+            onclick="nextModalImg()"
+            aria-label="Next image"
+          >
+            <i class="ri-arrow-right-s-line"></i>
+          </button>
+          <div class="modal-img-counter" id="modalImgCounter"></div>
         </div>
         <div class="project-modal-body">
           <div class="project-modal-badge" id="modalBadge"></div>
@@ -1047,9 +1306,6 @@
       </div>
     </div>
 
-    <!-- ═══════════════════════════════════════
-       SECTION 6: TESTIMONIALS
-  ═══════════════════════════════════════ -->
     <section class="testimonials section" id="testimonials">
       <div class="container">
         <div class="section-header" data-aos="fade-up">
@@ -1071,8 +1327,7 @@
               <div class="testimonial-author">
                 <div class="author-avatar">AO</div>
                 <div>
-                  <strong>Adeola Okonkwo</strong>
-                  <span>Brand Owner</span>
+                  <strong>Adeola Okonkwo</strong><span>Brand Owner</span>
                 </div>
               </div>
             </div>
@@ -1087,8 +1342,7 @@
               <div class="testimonial-author">
                 <div class="author-avatar">FK</div>
                 <div>
-                  <strong>Funmilayo Kehinde</strong>
-                  <span>Event Organiser</span>
+                  <strong>Funmilayo Kehinde</strong><span>Event Organiser</span>
                 </div>
               </div>
             </div>
@@ -1103,8 +1357,7 @@
               <div class="testimonial-author">
                 <div class="author-avatar">MS</div>
                 <div>
-                  <strong>Michael Sanni</strong>
-                  <span>Startup Founder</span>
+                  <strong>Michael Sanni</strong><span>Startup Founder</span>
                 </div>
               </div>
             </div>
@@ -1119,14 +1372,12 @@
               <div class="testimonial-author">
                 <div class="author-avatar">TL</div>
                 <div>
-                  <strong>Tolu Lawal</strong>
-                  <span>Digital Marketer</span>
+                  <strong>Tolu Lawal</strong><span>Digital Marketer</span>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- Slider controls -->
           <div class="slider-controls">
             <button class="slider-btn" id="prevBtn">
               <i class="ri-arrow-left-s-line"></i>
@@ -1140,10 +1391,6 @@
       </div>
     </section>
 
-    <!-- ═══════════════════════════════════════
-       SECTION 7: CONTACT
-  ═══════════════════════════════════════ -->
-
     <section class="contact section" id="contact">
       <div class="container">
         <div class="section-header" data-aos="fade-up">
@@ -1154,7 +1401,6 @@
         </div>
 
         <div class="contact-grid">
-          <!-- Info -->
           <div class="contact-info" data-aos="fade-right">
             <h3>Ready to work together?</h3>
             <p>
@@ -1166,22 +1412,21 @@
               <div class="contact-item">
                 <i class="ri-mail-fill"></i>
                 <div>
-                  <strong>Email</strong>
-                  <span>quamoyekan5@email.com</span>
+                  <strong>Email</strong><span>quamoyekan5@email.com</span>
                 </div>
               </div>
               <div class="contact-item">
                 <i class="ri-phone-fill"></i>
                 <div>
-                  <strong>Phone</strong>
-                  <span>+234 905 835 4896<br />+234 802 671 7541</span>
+                  <strong>Phone</strong
+                  ><span>+234 905 835 4896<br />+234 802 671 7541</span>
                 </div>
               </div>
               <div class="contact-item">
                 <i class="ri-map-pin-fill"></i>
                 <div>
-                  <strong>Location</strong>
-                  <span
+                  <strong>Location</strong
+                  ><span
                     >44, Unique Estate, Akingbala, Eleweran,<br />Obantoko,
                     Abeokuta, Ogun State, Nigeria 🇳🇬</span
                   >
@@ -1217,9 +1462,7 @@
             </div>
           </div>
 
-          <!-- Form -->
           <div class="contact-form-wrap" data-aos="fade-left">
-            <!-- Success / Error banners (hidden by default) -->
             <div class="form-banner form-success" id="formSuccess">
               <i class="ri-checkbox-circle-fill"></i>
               <div>
@@ -1329,9 +1572,6 @@
       </div>
     </section>
 
-    <!-- ═══════════════════════════════════════
-       FOOTER
-  ═══════════════════════════════════════ -->
     <footer class="footer">
       <div class="footer-top">
         <div class="container footer-grid">
@@ -1407,12 +1647,10 @@
       </div>
     </footer>
 
-    <!-- Scroll to top -->
     <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
       <i class="ri-arrow-up-line"></i>
     </button>
 
-    <!-- JavaScript -->
     <script src="script.js"></script>
   </body>
 </html>

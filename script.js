@@ -1,7 +1,7 @@
 /* ═══════════════════════════════════════════════
-   OLAMZY_GRAPHICS PORTFOLIO — main.js
+   OLAMZY_GRAPHICS PORTFOLIO — script.js
    Author: Quam Oyekan Alani
-   Version: 1.1 (Fixed)
+   Version: 1.2 (Projects grid + multi-image modal)
 ═══════════════════════════════════════════════ */
 
 /* ─── 1. PAGE LOADER ────────────────────────── */
@@ -294,6 +294,27 @@ filterBtns.forEach((btn) => {
   });
 });
 
+/* Populate the "All / Web Dev / Graphic Design / UI/UX" counts
+   shown next to each filter tab, based on how many project
+   cards exist in each category. */
+function updateFilterCounts() {
+  const counts = { all: 0, web: 0, design: 0, uiux: 0 };
+  projectCards.forEach((card) => {
+    const cat = card.getAttribute("data-category");
+    counts.all++;
+    if (counts[cat] !== undefined) counts[cat]++;
+  });
+
+  const setCount = (id, val) => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = val;
+  };
+  setCount("count-all", counts.all);
+  setCount("count-web", counts.web);
+  setCount("count-design", counts.design);
+  setCount("count-uiux", counts.uiux);
+}
+updateFilterCounts();
 
 /* ─── 12. TESTIMONIALS SLIDER ───────────────── */
 const track = document.getElementById("testimonialsTrack");
@@ -487,23 +508,162 @@ if (sendBtn) {
   });
 }
 
-/* ─── 14. GALLERY IMAGE UPLOAD ───────────────── */
-function loadGalleryImage(event, input) {
-  const file = event.target.files[0];
-  if (!file) return;
+/* ─── 14. PROJECT MODAL (multi-image lightbox gallery) ───────
+   Each "Preview" button carries:
+     data-title  → project title
+     data-desc   → project description
+     data-tags   → comma-separated tags
+     data-imgs   → comma-separated image path(s). One path =
+                   single image, no arrows. Multiple paths =
+                   gallery with prev/next + counter.
+   The parent .project-card's data-category ("web" / "design" /
+   "uiux") drives the badge shown in the modal, and any <a>
+   links inside that same card's .project-overlay (Live Demo,
+   GitHub, View Full, Prototype) are cloned into the modal's
+   action row so the modal is fully self-contained.
+─────────────────────────────────────────────────────────── */
 
-  const card = input.closest(".gallery-card");
-  const img = card.querySelector(".gallery-img");
+const modalOverlay = document.getElementById("projectModalOverlay");
+const modalImgEl = document.getElementById("modalImg");
+const modalImgPlaceholder = document.getElementById("modalImgPlaceholder");
+const modalPrevBtn = document.getElementById("modalPrevBtn");
+const modalNextBtn = document.getElementById("modalNextBtn");
+const modalImgCounter = document.getElementById("modalImgCounter");
+const modalTitleEl = document.getElementById("modalTitle");
+const modalDescEl = document.getElementById("modalDesc");
+const modalTagsEl = document.getElementById("modalTags");
+const modalBadgeEl = document.getElementById("modalBadge");
+const modalActionsEl = document.getElementById("modalActions");
 
-  const reader = new FileReader();
-  reader.onload = (e) => {
-    img.src = e.target.result;
-    card.classList.add("loaded");
-  };
-  reader.readAsDataURL(file);
+const CATEGORY_BADGES = {
+  web: { label: "Web Dev", icon: "ri-code-s-slash-fill", cls: "web-badge" },
+  design: {
+    label: "Graphic Design",
+    icon: "ri-palette-fill",
+    cls: "design-badge",
+  },
+  uiux: { label: "UI/UX", icon: "ri-layout-fill", cls: "uiux-badge" },
+};
+
+let galleryImgs = [];
+let galleryIndex = 0;
+
+function renderModalImage() {
+  const src = galleryImgs[galleryIndex] || "";
+
+  if (modalImgPlaceholder) modalImgPlaceholder.style.display = "none";
+  if (modalImgEl) modalImgEl.style.display = "block";
+
+  if (!src) {
+    if (modalImgEl) modalImgEl.style.display = "none";
+    if (modalImgPlaceholder) modalImgPlaceholder.style.display = "flex";
+  } else if (modalImgEl) {
+    modalImgEl.src = src;
+    modalImgEl.onerror = () => {
+      modalImgEl.style.display = "none";
+      if (modalImgPlaceholder) modalImgPlaceholder.style.display = "flex";
+    };
+  }
+
+  const multi = galleryImgs.length > 1;
+  modalPrevBtn?.classList.toggle("show", multi);
+  modalNextBtn?.classList.toggle("show", multi);
+  modalImgCounter?.classList.toggle("show", multi);
+  if (modalImgCounter && multi) {
+    modalImgCounter.textContent = `${galleryIndex + 1} / ${galleryImgs.length}`;
+  }
 }
 
-window.loadGalleryImage = loadGalleryImage;
+function nextModalImg() {
+  if (galleryImgs.length < 2) return;
+  galleryIndex = (galleryIndex + 1) % galleryImgs.length;
+  renderModalImage();
+}
+
+function prevModalImg() {
+  if (galleryImgs.length < 2) return;
+  galleryIndex = (galleryIndex - 1 + galleryImgs.length) % galleryImgs.length;
+  renderModalImage();
+}
+
+function openProjectModal(btn) {
+  const card = btn.closest(".project-card");
+  const category = card?.getAttribute("data-category") || "";
+
+  // Parse image list (supports data-imgs="a,b,c" or legacy data-img="a")
+  const rawImgs =
+    btn.getAttribute("data-imgs") || btn.getAttribute("data-img") || "";
+  galleryImgs = rawImgs
+    .split(",")
+    .map((s) => s.trim())
+    .filter(Boolean);
+  galleryIndex = 0;
+  renderModalImage();
+
+  // Title / description
+  if (modalTitleEl)
+    modalTitleEl.textContent = btn.getAttribute("data-title") || "";
+  if (modalDescEl)
+    modalDescEl.textContent = btn.getAttribute("data-desc") || "";
+
+  // Tags
+  const tags = (btn.getAttribute("data-tags") || "")
+    .split(",")
+    .map((t) => t.trim())
+    .filter(Boolean);
+  if (modalTagsEl) {
+    modalTagsEl.innerHTML = tags.map((t) => `<span>${t}</span>`).join("");
+  }
+
+  // Category badge
+  if (modalBadgeEl) {
+    const badge = CATEGORY_BADGES[category];
+    if (badge) {
+      modalBadgeEl.className = "project-modal-badge " + badge.cls;
+      modalBadgeEl.innerHTML = `<i class="${badge.icon}"></i> ${badge.label}`;
+      modalBadgeEl.style.display = "inline-flex";
+    } else {
+      modalBadgeEl.style.display = "none";
+    }
+  }
+
+  // Action buttons — clone whatever links live in this card's
+  // overlay (Live Demo / GitHub / View Full / Prototype) so the
+  // modal always matches the card without duplicating data.
+  if (modalActionsEl) {
+    modalActionsEl.innerHTML = "";
+    card?.querySelectorAll(".project-overlay a").forEach((a) => {
+      const clone = document.createElement("a");
+      clone.href = a.getAttribute("href") || "#";
+      clone.target = a.getAttribute("target") || "_self";
+      clone.className = "btn btn-primary";
+      clone.innerHTML = a.innerHTML;
+      modalActionsEl.appendChild(clone);
+    });
+  }
+
+  modalOverlay?.classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+
+function closeProjectModal() {
+  modalOverlay?.classList.remove("open");
+  document.body.style.overflow = "";
+}
+
+// Keyboard support: Esc to close, arrow keys to navigate
+document.addEventListener("keydown", (e) => {
+  if (!modalOverlay?.classList.contains("open")) return;
+  if (e.key === "Escape") closeProjectModal();
+  if (e.key === "ArrowRight") nextModalImg();
+  if (e.key === "ArrowLeft") prevModalImg();
+});
+
+// Expose to inline onclick="" handlers in index.html
+window.openProjectModal = openProjectModal;
+window.closeProjectModal = closeProjectModal;
+window.nextModalImg = nextModalImg;
+window.prevModalImg = prevModalImg;
 
 /* ─── 15. SCROLL TO TOP ─────────────────────── */
 const scrollTopBtn = document.getElementById("scrollTop");
@@ -539,4 +699,3 @@ setTimeout(() => {
   animateSkillBars();
   animateCounters();
 }, 500);
-
